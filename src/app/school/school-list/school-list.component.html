@@ -1,0 +1,26 @@
+<h3>School list</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25px">Id</th>
+      <th style="width: 200px">School</th>
+      <th style="width: 200px">Address</th>
+      <th style="min-width: 100px">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of schools">
+      <td>{{ row.id }}</td>
+      <td>{{ row.title | slice:1:15 }}</td>
+      <td>{{ row.body | slice:1:20 }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" [routerLink]="['/school-detail']" [queryParams]="{schoolId: row.userId}">{{row.userId}}</button>
+      </td>
+    </tr>    
+  </tbody>
+</table>
+    <div *ngFor="let school of schools">
+      <!-- <button [routerLink]="['/post-detail', post.userId]">{{post.userId}}</button>  -->
+      <button [routerLink]="['/school-detail']" [queryParams]="{schoolId: school.userId}">{{school.userId}}</button>
+      <!--<button [routerLink]="['/post-comment', post.id]">{{post.id}}</button>-->
+    </div>

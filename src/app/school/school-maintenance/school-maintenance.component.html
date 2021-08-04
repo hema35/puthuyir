@@ -1,0 +1,42 @@
+<h3>School Maintenance</h3>
+<button class="btn btn-primary" (click)="createCountry()">Add New School</button>
+<table>
+  <thead>
+  <tr>
+    <th style="width: 25px">Id</th>
+    <th style="width: 200px">School</th>
+    <th style="width: 70px">Address</th>
+    <th style="min-width: 100px">Maintain</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of schools">
+    <td>{{ row.id }}</td>
+    <td>{{ row.title | slice:1:15 }}</td>
+    <td>{{ row.body | slice:1:20 }}</td>
+    <td *ngIf="row.id != deleteId">
+      <button class="btn btn-sm btn-primary"
+        (click)="showSchoolDetail(row.id)">
+          Details
+      </button>
+      <button class="btn btn-sm btn-warning"
+        (click)="editCountry(row.id)">
+          Edit
+      </button>
+      <button class="btn btn-sm btn-danger"
+        (click)="deleteCountryQuestion(row.id)">
+          Delete
+      </button>
+    </td>
+    <td *ngIf="row.id === deleteId && !isDeleting">
+      Delete this country?
+      <button class="btn btn-sm" (click)="cancelDelete()">Cancel</button>
+      <button class="btn btn-sm btn-danger" (click)="deleteCountry(row.id)">Delete</button>
+      <p *ngIf="deleteError">{{ deleteError }}</p>
+    </td>
+    <td *ngIf="row.id === deleteId && isDeleting">
+      Deleting...
+    </td>
+  </tr>
+  </tbody>
+</table>

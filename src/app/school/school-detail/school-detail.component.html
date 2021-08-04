@@ -1,0 +1,17 @@
+<h3>Details for school : {{schoolTitle}}</h3>
+<button routerLink="/school-list">Go Back to school list</button>
+<!-- <div *ngFor="let school of filteredschools">  
+  <label>{{school.body}}</label><button>{{school.userId}}</button> 
+ </div> -->
+
+ <div class="group" *ngFor="let school of filteredschools">
+  <div class="index">
+    <span>{{ school.userId }}</span>
+  </div>
+  <div class="epi-index">
+    <span>{{ school.body }}</span>
+  </div>
+   <div class="index">
+    <span>{{ school.userId }}</span>
+  </div>
+</div>

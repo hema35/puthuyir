@@ -1,0 +1,63 @@
+<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators"
+  style="background-color:olive;">
+  <ng-template ngbSlide>
+    <div class="container">
+      <div class="text-center">
+        <img [src]="images[0]" alt="Random first slide">
+        <button class="btn" routerLink="/school-list">School List</button>
+      </div>
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.
+          <a routerLink="/school-list">School List</a>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="container">
+      <div class="text-center">
+        <img [src]="images[1]" alt="Random second slide">
+        <button class="btn" routerLink="/school-detail">School Detail</button>
+      </div>
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <a routerLink="/school-detail">Detail of this school</a>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="container">
+      <div class="text-center">
+        <img [src]="images[2]" alt="Random third slide">
+        <button class="btn" routerLink="/school-maintenance">School Maintenance</button>
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          <a routerLink="/school-maintenance">School Maintenance</a>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="container">
+      <div class="text-center">
+        <img [src]="images[3]" alt="Random fourth slide">
+        <button class="btn" routerLink="/school-maintenance">School Maintenance</button>
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          <a routerLink="/school-maintenance">School Maintenance</a>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+  <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+</div> -->
