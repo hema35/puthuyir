@@ -21,7 +21,7 @@ const routes: Routes = [
   //     { path: '', canActivateChild: [AuthGuard],
   //       children: [
   //         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-          
+
   //       ] }
   //     ] },
   {
@@ -30,13 +30,13 @@ const routes: Routes = [
   },
   {
     path: 'school-list',
-    component: SchoolListComponent
+    component: SchoolMaintenanceComponent
   },
   {
     path: 'school-maintenance',
     component: SchoolMaintenanceComponent
   },
-  
+
   //{path: 'post-detail/:userId', component : PostDetailComponent }
   {
     path: 'school-detail/:schoolId',

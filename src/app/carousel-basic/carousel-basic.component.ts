@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { a } from '@angular/core/src/render3';
+import { Picture } from '../picture';
+import { PictureService } from '../picture.service';
+
+
 
 @Component({
   selector: 'app-carousel-basic',
   templateUrl: './carousel-basic.component.html',
   styleUrls: ['./carousel-basic.component.css']
 })
-export class CarouselBasicComponent implements OnInit {
+export class CarouselBasicComponent implements OnInit, OnDestroy {
   showNavigationArrows = true;
   showNavigationIndicators = true;
   images: Array<string>;
 
-  constructor(config: NgbCarouselConfig, private _http: HttpClient) {
+  constructor(config: NgbCarouselConfig, private pictureService: PictureService) {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
@@ -40,7 +41,7 @@ export class CarouselBasicComponent implements OnInit {
     //   const pictureUrl = 'https://uat.picsum.photos/list'
     // }
 
-    switch (window.location.hostname) {
+    /* switch (window.location.hostname) {
       case 'localhost':
           pictureUrl = 'https://picsum.photos/list';
       break;
@@ -54,16 +55,16 @@ export class CarouselBasicComponent implements OnInit {
           pictureUrl = 'https://uat.picsum.photos/list';
       break;
 
-    }
-    this._http.get<any>(pictureUrl)
-      .pipe(map((images: Array<{ id: number }>) => this._randomImageUrls(images)))
-      .subscribe(x => this.images = x);
+    } */
+    this.pictureService.getImage().subscribe(x => {
+      this.images = x;
+    console.log(this.images);
+    });
+
   }
 
-  private _randomImageUrls(images: Array<{ id: number }>): Array<string> {
-    return [1, 2, 3].map(() => {
-      const randomId = images[Math.floor(Math.random() * images.length)].id;
-      return `https://picsum.photos/900/500?image=${randomId}`;
-    });
+  ngOnDestroy() {
+    console.log('I am destroyed');
   }
 }
+

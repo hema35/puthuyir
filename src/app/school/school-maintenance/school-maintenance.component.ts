@@ -21,7 +21,7 @@ export class SchoolMaintenanceComponent implements OnInit {
   isDeleting = false;
 
   constructor(private dataService: DataService,
-              private router: Router) { 
+              private router: Router) {
     dataService.getSchools().subscribe((data) => this.schools = data);
   }
 
